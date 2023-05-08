@@ -12,6 +12,11 @@
     "expo": "~48.0.15",
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
+    "axios": "^1.4.0",
+    "@react-navigation/native-stack": "^6.9.12",
+    "@react-navigation/native": "^6.1.6",
+    "react-native-reanimated": "~2.14.4",
+    "@react-navigation/drawer": "^6.6.2",
     "react-native": "0.71.7"
   },
   "devDependencies": {
