@@ -26,7 +26,8 @@ export const Login = ({ navigation }) => {
 
     const next = () => {
         data.login = true
-        setData('user', data)
+        setData(data, 'user')
+        navigation.navigate('Routes') //Link
     }
 
     const onPress = () => {
@@ -35,9 +36,9 @@ export const Login = ({ navigation }) => {
             setError('Cadastro invalido')
     }
 
-    const CallBack = (key, data) => {
-        var clone = Object.assign({}, form);
-        clone[key] = data
+    const CallBack = (key, value) => {
+        var clone = object.assign({}, form); //{user:'', pass:''}
+        clone[key] = value
         setForm(clone)
     }
 
