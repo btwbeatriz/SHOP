@@ -11,24 +11,25 @@ export const Home = ({ navigation }) => {
         function handleStatusChange(data){
 
           if (!data) {
-            navigation.navigate('Cadastro')
+            navigation.navigate('register')
             return true
           }
           if (!data.login) {
-            console.log(data)
-            navigation.navigate('Login')
+            navigation.navigate('login')
             return true
           }
         }
         getData(handleStatusChange, 'user')
       }
     )
+
     const onPress = () => {
       navigation.navigate('Logoff')
     }
+
     return(
       <View style={Style.container}>
-        <Text style={Style.title}> Open up App.js to start working on your app!</Text>
+        <Text style={Style.title}> SHOP </Text>
         <ButtonCuston
           onPress={onPress}
           placeholder='Logoff'
@@ -37,3 +38,4 @@ export const Home = ({ navigation }) => {
       </View>
     );
 }
+
