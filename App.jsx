@@ -1,10 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { CardStyleInterpolators } from "@react-navigation/stack";
+import { ScreenStack } from "./src/context/routes";
 import { createSharedElementStackNavigator } from "react-navigation-shared-element";
-import { Login } from "./src/screens/Login";
-import { Register } from "./src/screens/Login/register";
-import { Logoff } from "./src/screens/Login/logoff";
-import { Router } from "./src/screens/routes";
 
 const options ={
   gestureEnabled: true,
@@ -13,16 +10,23 @@ const options ={
   headerShown: false,
 }
 
-const Stack = createSharedElementStackNavigator();
+const {Navigator, Screen} = createSharedElementStackNavigator();
 
 const RootStack = () =>{
   return(
-    <Stack.Navigator screenOptions={options}>
-      <Stack.Screen name="Routes" component={Router} />
-      <Stack.Screen name="Cadastro" component={Register} />
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Logoff" component={Logoff} />
-    </Stack.Navigator>
+    <NavigationContainer screenOptions={options}>
+      <Navigator screenOptions={}
+      {
+        ScreenStack.map((item,index) =>(
+          <Screen 
+          key={index}
+          name={item.router}
+          component={item.component}
+          options={{item:item}}
+          />
+        ))
+      }
+    </NavigationContainer>
   )
 }
 
