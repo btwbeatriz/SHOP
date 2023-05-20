@@ -10,31 +10,23 @@ const options ={
   headerShown: false,
 }
 
-const {Navigator, Screen} = createSharedElementStackNavigator();
-
-const RootStack = () =>{
-  return(
-    <NavigationContainer screenOptions={options}>
-      <Navigator screenOptions={}
-      {
-        ScreenStack.map((item,index) =>(
-          <Screen 
-          key={index}
-          name={item.router}
-          component={item.component}
-          options={{item:item}}
-          />
-        ))
-      }
-    </NavigationContainer>
-  )
-}
+const {Navigator, Screen} = createSharedElementStackNavigator()
 
 export default function App() {
-
-  return (
-    <NavigationContainer>
-      <RootStack />
-    </NavigationContainer>
-  );
+    return(
+      <NavigationContainer>
+        <Navigator screenOptions={options}>
+          {
+            ScreenStack.map((item,index) =>(
+              <Screen 
+                key={index}
+                name={item.route}
+                component={item.component}
+                options={{item:item}}
+              />
+            ))
+          }
+        </Navigator>
+      </NavigationContainer>
+    )
 }

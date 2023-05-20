@@ -6,36 +6,28 @@ import { getData } from "../context/Data";
 import { ButtonCuston } from '../components/Button';
 
 export const Home = ({ navigation }) => {
-    useEffect(
-      () => {
-        function handleStatusChange(data){
 
-          if (!data) {
-            navigation.navigate('register')
-            return true
+  useEffect(() => {
+      const CallBack = (user) => {
+          if (!user) {
+              navigation.navigate('Register')
+              return false
           }
-          if (!data.login) {
-            navigation.navigate('login')
-            return true
+          if (!user.login) {
+              navigation.navigate('Login')
+              return false
           }
-        }
-        getData(handleStatusChange, 'user')
       }
-    )
-
-    const onPress = () => {
+      getData(CallBack, 'user')
+  })
+  const onPress = () => {
       navigation.navigate('Logoff')
-    }
-
-    return(
+  }
+  return (
       <View style={Style.container}>
-        <Text style={Style.title}> SHOP </Text>
-        <ButtonCuston
-          onPress={onPress}
-          placeholder='Logoff'
-          />
+          <Text>Open up App.js to s2tart working on your app!</Text>
+          <ButtonCuston onPress={onPress} placeholder='Logoff' />
           <StatusBar style="auto" />
       </View>
-    );
+  );
 }
-

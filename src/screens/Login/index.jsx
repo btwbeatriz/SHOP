@@ -1,10 +1,9 @@
-import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
-import { Style } from "../../context/Theme";
-import { TextCuston } from "../../components/TextInput";
-import { ButtonCuston } from "../../components/Button";
-import { getData, setData } from "../../context/Data";
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
+import { Text, View } from "react-native"
+import { setData, getData } from '../../context/Data'
+import { TextCuston } from '../../components/TextInput'
+import { Style } from "../../context/Theme"
+import { ButtonCuston } from "../../components/Button"
 
 export const Login = ({ navigation }) => {
     const [error, setError] = useState('')

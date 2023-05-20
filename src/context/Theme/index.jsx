@@ -1,7 +1,7 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
 
 export const colors = {
-    primary: '#ed145b',
+    primary: '#ea7a72',
     primaryDark: '#039a83',
     normal: '#b0e6fd',
     important: '#e892ab',
@@ -19,33 +19,55 @@ export const colors = {
     sceneBg: '#04567f',
     screenBg: '#05294a',
     transparent: 'transparent'
-   }
-    
-   export const constant = {
+}
+
+export const constant = {
     SPACING: 16,
     borderRadius: 10,
     titleFontSize: 24,
     textFontSize: 16,
     subTextFontSize: 14,
     width: '100%',
-    alignItems: 'center'
-   }
+    alignCenter: 'center'
+}
 
 export const Style = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
-        padding: constrant.SPACING,
-        backgroundColor: colors.white,
-        alignItems: constant.alignItems,
-        justifyContent: constant.alignItems
+        padding: constant.SPACING,
+        alignItems: constant.alignCenter,
+        justifyContent: constant.alignCenter,
     },
-    title:{
-        fontSize: constrant.titleFontSize,
+    title: {
+        fontSize: constant.titleFontSize,
         color: colors.active
     },
-    error:{
-        pading: constant.SPACING / 2,
+    error: {
+        padding: constant.SPACING / 2,
         fontSize: constant.subTextFontSize,
         color: colors.important
+    },
+    row: {
+        padding: constant.SPACING / 2,
+        width: constant.width
+    },
+    TextInput: {
+        fontSize: constant.textFontSize,
+        width: constant.width,
+        color: colors.active,
+        borderBottomWidth: 1,
+        borderColor: colors.normal,
+        padding: constant.SPACING / 2,
+    },
+    textButton: {
+        fontSize: constant.textFontSize,
+        color: colors.white
+    },
+    button: {
+        padding: constant.SPACING / 2,
+        width: constant.width,
+        alignItems: constant.alignCenter,
+        backgroundColor: colors.active,
+        borderRadius: constant.borderRadius
     }
 })
