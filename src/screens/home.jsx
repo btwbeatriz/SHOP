@@ -31,7 +31,7 @@ export const Home = ({ navigation }) => {
   
   return (
     <View style={Style.container}>
-      <Text>Open up App.js to s2tart working on your app!</Text>
+      <Text>Bem vindo à nossa loja!</Text>
       <ButtonCuston onPress={onPress} placeholder="Logoff" />
       <StatusBar style="auto" />
     </View>
