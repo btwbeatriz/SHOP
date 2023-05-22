@@ -1,33 +1,39 @@
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import { Text, View } from "react-native";
-import { Style } from '../context/Theme';
-import { getData } from "../context/Data";
-import { ButtonCuston } from '../components/Button';
+import { Style } from "../context/Theme";
+import { getData, setData } from "../context/Data";
+import { ButtonCuston } from "../components/Button";
 
 export const Home = ({ navigation }) => {
+  var user_ = {};
 
   useEffect(() => {
-      const CallBack = (user) => {
-          if (!user) {
-              navigation.navigate('Register')
-              return false
-          }
-          if (!user.login) {
-              navigation.navigate('Login')
-              return false
-          }
+    const CallBack = (user) => {
+      if (!user) {
+        navigation.navigate("Register");
+        return false;
       }
-      getData(CallBack, 'user')
-  })
+      if (!user.login) {
+        navigation.navigate("Login");
+        return false;
+      }
+      user_ = user;
+    };
+    getData(CallBack, "user");
+  });
+
   const onPress = () => {
-      navigation.navigate('Logoff')
-  }
+    user_.login = false;
+    setData("user", user_);
+    navigation.navigate("Logoff");
+  };
+  
   return (
-      <View style={Style.container}>
-          <Text>Open up App.js to s2tart working on your app!</Text>
-          <ButtonCuston onPress={onPress} placeholder='Logoff' />
-          <StatusBar style="auto" />
-      </View>
+    <View style={Style.container}>
+      <Text>Open up App.js to s2tart working on your app!</Text>
+      <ButtonCuston onPress={onPress} placeholder="Logoff" />
+      <StatusBar style="auto" />
+    </View>
   );
-}
+};

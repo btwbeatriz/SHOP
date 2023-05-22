@@ -4,6 +4,7 @@ import { Router } from "../screens/routes"
 import { Login } from "../screens/Login"
 import { Register } from "../screens/Login/register"
 import { Logoff } from "../screens/Login/logoff"
+import { Store } from "../screens/Store"
 
 export const ScreenArray = [
     {
@@ -12,6 +13,14 @@ export const ScreenArray = [
         typeIcon: Icons.Feather,
         icon: 'home',
         component: Home,
+        notification: 0
+    },
+    {
+        route: 'Loja',
+        label: 'Loja',
+        typeIcon: Icons.Feather,
+        icon: 'home',
+        component: Store,
         notification: 0
     }
 ]
